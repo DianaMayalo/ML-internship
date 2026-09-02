@@ -36,7 +36,7 @@ The goal is to answer:
 
 Machine learning should be understood as a loop:
 
-```mermaid
+```Shell
 flowchart LR
   A[World / Reality] --> B[Data]
   B --> C[Features / Representations]
@@ -139,16 +139,16 @@ flowchart TD
 
 ### System Types
 
-| System Type | What It Does | Best Used When |
-|---|---|---|
-| Fixed code / rules | Applies explicit logic | Rules are known and stable |
-| SQL / reporting | Summarizes known data | Need visibility, not prediction |
-| Analytics / BI | Explains what happened | Need diagnosis or monitoring |
-| Statistics | Estimates relationships and uncertainty | Need inference, testing, explanation |
-| Optimization | Finds best option under constraints | Objective and constraints are known |
-| Classical ML | Learns predictive patterns from structured data | Need prediction, ranking, classification |
-| Deep learning | Learns representations from large/high-dimensional data | Text, images, audio, complex patterns |
-| LLM / generative AI | Produces or interprets language/content | Need generation, extraction, summarization, reasoning-like behavior |
+| System Type         | What It Does                                            | Best Used When                                                      |
+| ------------------- | ------------------------------------------------------- | ------------------------------------------------------------------- |
+| Fixed code / rules  | Applies explicit logic                                  | Rules are known and stable                                          |
+| SQL / reporting     | Summarizes known data                                   | Need visibility, not prediction                                     |
+| Analytics / BI      | Explains what happened                                  | Need diagnosis or monitoring                                        |
+| Statistics          | Estimates relationships and uncertainty                 | Need inference, testing, explanation                                |
+| Optimization        | Finds best option under constraints                     | Objective and constraints are known                                 |
+| Classical ML        | Learns predictive patterns from structured data         | Need prediction, ranking, classification                            |
+| Deep learning       | Learns representations from large/high-dimensional data | Text, images, audio, complex patterns                               |
+| LLM / generative AI | Produces or interprets language/content                 | Need generation, extraction, summarization, reasoning-like behavior |
 
 ### Important Nuance
 
@@ -178,17 +178,17 @@ flowchart TD
 
 ### ML Task Types
 
-| Task Type | Question It Answers | Example Output |
-|---|---|---|
-| Classification | Which category? | spam / not spam |
-| Regression | How much? | predicted revenue |
-| Ranking | What should come first? | prioritized queue |
-| Forecasting | What happens next over time? | future demand |
-| Clustering | What groups exist? | customer segments |
-| Anomaly detection | What looks unusual? | fraud alert |
-| Recommendation | What should be suggested? | next item |
-| Generation | What should be created? | text, image, code |
-| Extraction | What structured info is inside unstructured input? | entities, fields |
+| Task Type         | Question It Answers                                | Example Output    |
+| ----------------- | -------------------------------------------------- | ----------------- |
+| Classification    | Which category?                                    | spam / not spam   |
+| Regression        | How much?                                          | predicted revenue |
+| Ranking           | What should come first?                            | prioritized queue |
+| Forecasting       | What happens next over time?                       | future demand     |
+| Clustering        | What groups exist?                                 | customer segments |
+| Anomaly detection | What looks unusual?                                | fraud alert       |
+| Recommendation    | What should be suggested?                          | next item         |
+| Generation        | What should be created?                            | text, image, code |
+| Extraction        | What structured info is inside unstructured input? | entities, fields  |
 
 ### Framing Flow
 
@@ -334,9 +334,9 @@ flowchart LR
 
 ### Feature Engineering Vs Representation Learning
 
-| Approach | Meaning | Usually Used With |
-|---|---|---|
-| Feature engineering | Humans design useful inputs | Classical ML, structured data |
+| Approach                | Meaning                               | Usually Used With                            |
+| ----------------------- | ------------------------------------- | -------------------------------------------- |
+| Feature engineering     | Humans design useful inputs           | Classical ML, structured data                |
 | Representation learning | Model learns useful internal features | Deep learning, embeddings, foundation models |
 
 Neither is always better. Structured business data often benefits from explicit feature engineering. Text, images, audio, and high-dimensional data often benefit from representation learning.
@@ -384,15 +384,15 @@ flowchart TD
 
 ### Model Families
 
-| Family | Strength | Tradeoff |
-|---|---|---|
-| Rules / heuristics | Simple, explainable | Brittle when patterns are complex |
-| Linear/logistic models | Interpretable, strong baseline | Limited non-linear patterns |
-| Trees | Handles non-linear rules | Can overfit |
-| Random forests / boosting | Strong tabular performance | Less interpretable |
-| Neural networks | Flexible, representation learning | Data-hungry, harder to interpret |
-| Embedding models | Semantic similarity/search | Need careful retrieval/eval |
-| LLMs/foundation models | Broad language/knowledge capabilities | Cost, latency, hallucination, control |
+| Family                    | Strength                              | Tradeoff                              |
+| ------------------------- | ------------------------------------- | ------------------------------------- |
+| Rules / heuristics        | Simple, explainable                   | Brittle when patterns are complex     |
+| Linear/logistic models    | Interpretable, strong baseline        | Limited non-linear patterns           |
+| Trees                     | Handles non-linear rules              | Can overfit                           |
+| Random forests / boosting | Strong tabular performance            | Less interpretable                    |
+| Neural networks           | Flexible, representation learning     | Data-hungry, harder to interpret      |
+| Embedding models          | Semantic similarity/search            | Need careful retrieval/eval           |
+| LLMs/foundation models    | Broad language/knowledge capabilities | Cost, latency, hallucination, control |
 
 ---
 
@@ -441,13 +441,13 @@ The goal is not “no memorization.” Some memorization is normal and sometimes
 
 ### Split Types
 
-| Split Type | Use Case | Risk |
-|---|---|---|
-| Random split | Simple independent examples | Can overestimate performance |
-| Group/entity split | Need generalization to new users/clients/entities | Harder but more realistic |
-| Time split | Need future prediction | Best for temporal problems |
-| Geographic split | Need location generalization | Exposes region bias |
-| User split | Need new-user generalization | Prevents user leakage |
+| Split Type         | Use Case                                          | Risk                         |
+| ------------------ | ------------------------------------------------- | ---------------------------- |
+| Random split       | Simple independent examples                       | Can overestimate performance |
+| Group/entity split | Need generalization to new users/clients/entities | Harder but more realistic    |
+| Time split         | Need future prediction                            | Best for temporal problems   |
+| Geographic split   | Need location generalization                      | Exposes region bias          |
+| User split         | Need new-user generalization                      | Prevents user leakage        |
 
 Random splits only make sense when examples are close to independent. If many rows come from the same user, client, page, device, organization, or time period, independence is violated. In those cases, random splits often leak entity-specific or time-specific patterns into both train and test.
 
@@ -455,14 +455,14 @@ This is why group splits and time splits are not details. They test whether the 
 
 ### Metric Types
 
-| Goal | Useful Metrics |
-|---|---|
-| Classification | accuracy, precision, recall, F1, ROC AUC, PR AUC |
-| Ranking | precision@K, recall@K, NDCG, MAP |
-| Forecasting | MAE, RMSE, MAPE, backtesting |
-| Clustering | silhouette, stability, human usefulness |
-| Generation | human eval, rubric eval, factuality, safety, task success |
-| Decision systems | utility, cost saved, revenue, risk reduction |
+| Goal             | Useful Metrics                                            |
+| ---------------- | --------------------------------------------------------- |
+| Classification   | accuracy, precision, recall, F1, ROC AUC, PR AUC          |
+| Ranking          | precision@K, recall@K, NDCG, MAP                          |
+| Forecasting      | MAE, RMSE, MAPE, backtesting                              |
+| Clustering       | silhouette, stability, human usefulness                   |
+| Generation       | human eval, rubric eval, factuality, safety, task success |
+| Decision systems | utility, cost saved, revenue, risk reduction              |
 
 ### Key Distinction
 
@@ -513,16 +513,16 @@ Useful tools:
 
 ### Output Types
 
-| Output | Example | Used For |
-|---|---|---|
-| Class | churn / no churn | Direct categorization |
-| Probability | 0.82 risk | Risk scoring |
-| Score | 91/100 priority | Prioritization |
-| Rank | item #1, #2, #3 | Queues/search/recommendations |
-| Cluster | segment A/B/C | Discovery |
-| Forecast | next month demand | Planning |
-| Generated text/image/code | draft output | Creation/assistance |
-| Explanation | reason codes/features | Human trust/review |
+| Output                    | Example               | Used For                      |
+| ------------------------- | --------------------- | ----------------------------- |
+| Class                     | churn / no churn      | Direct categorization         |
+| Probability               | 0.82 risk             | Risk scoring                  |
+| Score                     | 91/100 priority       | Prioritization                |
+| Rank                      | item#1, #2, #3        | Queues/search/recommendations |
+| Cluster                   | segment A/B/C         | Discovery                     |
+| Forecast                  | next month demand     | Planning                      |
+| Generated text/image/code | draft output          | Creation/assistance           |
+| Explanation               | reason codes/features | Human trust/review            |
 
 ### Decision Policy
 
@@ -561,15 +561,15 @@ Uncertainty should be first-class:
 
 ### Interpretation Tools
 
-| Tool | Use |
-|---|---|
-| Feature importance | Understand broad drivers |
-| Coefficients | Interpret linear models |
-| Tree paths | Inspect decision logic |
-| SHAP / LIME | Local explanation of predictions |
-| Counterfactuals | What would change the output? |
-| Reason codes | Human-readable action rationale |
-| Model cards | Document purpose, limits, risks |
+| Tool               | Use                              |
+| ------------------ | -------------------------------- |
+| Feature importance | Understand broad drivers         |
+| Coefficients       | Interpret linear models          |
+| Tree paths         | Inspect decision logic           |
+| SHAP / LIME        | Local explanation of predictions |
+| Counterfactuals    | What would change the output?    |
+| Reason codes       | Human-readable action rationale  |
+| Model cards        | Document purpose, limits, risks  |
 
 ### Trust Principle
 
@@ -661,15 +661,15 @@ For action-taking systems, this matters because:
 
 ### Causal Concepts
 
-| Concept | Meaning |
-|---|---|
-| Intervention | A change deliberately applied to the system |
-| Treatment | The action being tested |
-| Control | The comparison group without the treatment |
-| Treatment effect | Difference caused by the treatment |
-| Uplift modeling | Predicting who benefits most from an action |
-| Counterfactual | What would have happened under a different action |
-| Confounding | Hidden factor affects both action and outcome |
+| Concept          | Meaning                                           |
+| ---------------- | ------------------------------------------------- |
+| Intervention     | A change deliberately applied to the system       |
+| Treatment        | The action being tested                           |
+| Control          | The comparison group without the treatment        |
+| Treatment effect | Difference caused by the treatment                |
+| Uplift modeling  | Predicting who benefits most from an action       |
+| Counterfactual   | What would have happened under a different action |
+| Confounding      | Hidden factor affects both action and outcome     |
 
 ### Experimentation Bridge
 
@@ -681,13 +681,13 @@ Online experimentation answers:
 
 > Does using the model improve the real decision?
 
-| Method | Use |
-|---|---|
-| A/B test | Compare action policy against control in the real world |
-| Holdout group | Preserve an untreated comparison group |
-| Bandit | Balance exploration and exploitation across actions |
-| Off-policy evaluation | Estimate a new policy from logs before deployment |
-| Backtesting | Evaluate historical time-based behavior |
+| Method                | Use                                                     |
+| --------------------- | ------------------------------------------------------- |
+| A/B test              | Compare action policy against control in the real world |
+| Holdout group         | Preserve an untreated comparison group                  |
+| Bandit                | Balance exploration and exploitation across actions     |
+| Off-policy evaluation | Estimate a new policy from logs before deployment       |
+| Backtesting           | Evaluate historical time-based behavior                 |
 
 ### When You Cannot Run An Experiment
 
@@ -695,13 +695,13 @@ Sometimes a clean randomized experiment is not available. Historical business da
 
 In those cases, observational causal inference can help, but it requires stronger assumptions than A/B testing.
 
-| Method | Use | Main Caution |
-|---|---|---|
-| Propensity scoring | Compare treated and untreated examples with similar likelihood of receiving treatment | Only adjusts for observed confounders |
-| Difference-in-differences | Compare before/after changes between treated and comparison groups | Requires parallel-trends assumption |
-| Instrumental variables | Use external variation that affects treatment but not outcome directly | Valid instruments are hard to find |
-| Regression discontinuity | Use threshold-based assignment as a quasi-experiment | Only estimates effect near the threshold |
-| Matching | Pair similar treated and untreated examples | Quality depends on matching variables |
+| Method                    | Use                                                                                   | Main Caution                             |
+| ------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------- |
+| Propensity scoring        | Compare treated and untreated examples with similar likelihood of receiving treatment | Only adjusts for observed confounders    |
+| Difference-in-differences | Compare before/after changes between treated and comparison groups                    | Requires parallel-trends assumption      |
+| Instrumental variables    | Use external variation that affects treatment but not outcome directly                | Valid instruments are hard to find       |
+| Regression discontinuity  | Use threshold-based assignment as a quasi-experiment                                  | Only estimates effect near the threshold |
+| Matching                  | Pair similar treated and untreated examples                                           | Quality depends on matching variables    |
 
 Practical rule:
 
@@ -754,19 +754,19 @@ If the goal is to act, ask:
 
 ### Failure Types
 
-| Failure | Meaning |
-|---|---|
-| Leakage | Model learns information unavailable at prediction time |
-| Overfitting | Model performs well on training data but poorly on new data |
-| Underfitting | Model is too simple to capture signal |
-| Bad labels | Target is noisy, biased, or wrong |
-| Distribution shift | Future data differs from training data |
-| Concept drift | Relationship between inputs and output changes |
-| Goodhart failure | Proxy metric is optimized at expense of real goal |
-| Feedback loop | Model output changes future training data |
-| Bias/fairness issue | Performance or harm differs across groups |
-| Security issue | Poisoning, extraction, prompt injection, PII leakage |
-| Silent failure | System continues running while quality degrades |
+| Failure             | Meaning                                                     |
+| ------------------- | ----------------------------------------------------------- |
+| Leakage             | Model learns information unavailable at prediction time     |
+| Overfitting         | Model performs well on training data but poorly on new data |
+| Underfitting        | Model is too simple to capture signal                       |
+| Bad labels          | Target is noisy, biased, or wrong                           |
+| Distribution shift  | Future data differs from training data                      |
+| Concept drift       | Relationship between inputs and output changes              |
+| Goodhart failure    | Proxy metric is optimized at expense of real goal           |
+| Feedback loop       | Model output changes future training data                   |
+| Bias/fairness issue | Performance or harm differs across groups                   |
+| Security issue      | Poisoning, extraction, prompt injection, PII leakage        |
+| Silent failure      | System continues running while quality degrades             |
 
 ---
 
@@ -800,13 +800,13 @@ If the goal is to act, ask:
 
 ### Deployment Modes
 
-| Mode | Use Case |
-|---|---|
-| Batch scoring | Periodic queues, reports, prioritization |
-| Real-time API | Instant decisions in applications |
-| Embedded model | Local/mobile/edge prediction |
-| Human-in-loop | Review before action |
-| Assistant/copilot | Model suggests; human decides |
+| Mode              | Use Case                                 |
+| ----------------- | ---------------------------------------- |
+| Batch scoring     | Periodic queues, reports, prioritization |
+| Real-time API     | Instant decisions in applications        |
+| Embedded model    | Local/mobile/edge prediction             |
+| Human-in-loop     | Review before action                     |
+| Assistant/copilot | Model suggests; human decides            |
 
 ---
 
@@ -825,14 +825,14 @@ If the goal is to act, ask:
 
 ### Monitoring Types
 
-| Monitoring Type | What It Tracks |
-|---|---|
-| Data drift | Input distribution changes |
-| Prediction drift | Output distribution changes |
-| Performance drift | Metrics degrade over time |
-| Business KPI drift | Real-world value changes |
+| Monitoring Type     | What It Tracks                       |
+| ------------------- | ------------------------------------ |
+| Data drift          | Input distribution changes           |
+| Prediction drift    | Output distribution changes          |
+| Performance drift   | Metrics degrade over time            |
+| Business KPI drift  | Real-world value changes             |
 | Segment performance | Failures by group/client/user/entity |
-| Operational health | latency, cost, errors, uptime |
+| Operational health  | latency, cost, errors, uptime        |
 
 ### Improvement Loop
 
@@ -921,15 +921,15 @@ The best ML solution is not the most advanced model. It is the simplest system t
 
 ML systems often optimize more than one goal:
 
-| Objective | Possible Tension |
-|---|---|
-| Accuracy | May increase latency or complexity |
-| Precision | May reduce coverage |
-| Recall | May increase false positives |
-| Fairness | May require different thresholds or constraints |
-| Cost | May limit model size or serving frequency |
-| Interpretability | May limit model complexity |
-| User experience | May conflict with short-term business metrics |
+| Objective        | Possible Tension                                |
+| ---------------- | ----------------------------------------------- |
+| Accuracy         | May increase latency or complexity              |
+| Precision        | May reduce coverage                             |
+| Recall           | May increase false positives                    |
+| Fairness         | May require different thresholds or constraints |
+| Cost             | May limit model size or serving frequency       |
+| Interpretability | May limit model complexity                      |
+| User experience  | May conflict with short-term business metrics   |
 
 The practical question is:
 
@@ -950,16 +950,16 @@ At every stage, ask:
 - How would we know if it stops being true?
 - Which assumption is most fragile?
 
-| Stage | Assumption Example |
-|---|---|
-| Problem | The target matches the real decision |
-| Data | Historical data represents future data |
-| Labels | Labels are meaningful and consistent |
-| Features | Features are available at prediction time |
-| Model | Model bias fits the pattern |
-| Evaluation | Test split matches deployment reality |
-| Deployment | Users act on outputs as expected |
-| Monitoring | Drift and failures can be detected |
+| Stage      | Assumption Example                        |
+| ---------- | ----------------------------------------- |
+| Problem    | The target matches the real decision      |
+| Data       | Historical data represents future data    |
+| Labels     | Labels are meaningful and consistent      |
+| Features   | Features are available at prediction time |
+| Model      | Model bias fits the pattern               |
+| Evaluation | Test split matches deployment reality     |
+| Deployment | Users act on outputs as expected          |
+| Monitoring | Drift and failures can be detected        |
 
 ### Spine 2: Cost / Value
 
@@ -971,14 +971,14 @@ At every stage, ask:
 - What does failure cost?
 - Is a simpler system enough?
 
-| Stage | Cost/Value Question |
-|---|---|
-| Problem | Is this decision valuable enough to improve? |
-| Data | Is data collection/labeling worth it? |
-| Model | Does complexity add measurable value? |
+| Stage      | Cost/Value Question                                |
+| ---------- | -------------------------------------------------- |
+| Problem    | Is this decision valuable enough to improve?       |
+| Data       | Is data collection/labeling worth it?              |
+| Model      | Does complexity add measurable value?              |
 | Evaluation | Does metric improvement translate into real value? |
-| Deployment | Is latency/infrastructure cost acceptable? |
-| Monitoring | Is maintenance effort justified? |
+| Deployment | Is latency/infrastructure cost acceptable?         |
+| Monitoring | Is maintenance effort justified?                   |
 
 ---
 
